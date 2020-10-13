@@ -1,0 +1,8 @@
+.service{
+    padding:20px 40px 20px 40px;
+    transition: .5s;
+}
+.service:hover{
+    transform: scale(1.1);
+    box-shadow: 10px 10px 40px #9D9D9D;
+}
