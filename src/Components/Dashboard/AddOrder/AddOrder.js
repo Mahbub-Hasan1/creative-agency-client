@@ -22,12 +22,14 @@ const AddOrder = () => {
         setFile(newFile);
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         const formData = new FormData()
         console.log(info);
         formData.append('file', file);
         formData.append('name', info.name);
+        formData.append('serviceName', info.serviceName);
         formData.append('email', info.email);
+        formData.append('description',info.description);
 
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',
@@ -35,11 +37,20 @@ const AddOrder = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                console.log(data);
+                if (data) {
+                    alert('Your Order add successfully')
+                }
             })
+            // .then(result => {
+            //     if (result) {
+            //         alert('Your Order add successfully')
+            //     }
+            // })
             .catch(error => {
                 console.error(error)
-            })
+            });
+        e.preventDefault();
     }
 
 
@@ -59,13 +70,22 @@ const AddOrder = () => {
                     <div className="col-md-10 p-4 pr-5" style={{ position: "absolute", right: 0, backgroundColor: "#F4FDFB" }}>
                         <h5 className="text-brand">Add a Order</h5>
                         <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input onBlur={handleBlur} type="email" className="form-control" name="email" placeholder="Enter email" />
+                        <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Your Name</label>
+                                <input onBlur={handleBlur} type="text" defaultValue={loggedInUser.name} required className="form-control" name="name" placeholder="Your Name" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Name</label>
-                                <input onBlur={handleBlur} type="text" defaultValue={product.name} className="form-control" name="name" placeholder="Name" />
+                                <label htmlFor="exampleInputEmail1">Email address</label>
+                                <input onBlur={handleBlur} type="email" defaultValue={loggedInUser.email} required className="form-control" name="email" placeholder="Enter email" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">service Name</label>
+                                <input onBlur={handleBlur} type="text" defaultValue={product.name} required className="form-control" name="serviceName" placeholder="service Name" />
+                            </div>
+                            <div>
+                                <label htmlFor="exampleInputPassword1">Description</label>
+                                <textarea name="description" className="form-control" cols="20" rows="10"  required placeholder="Message *"></textarea><br />
+                               
                             </div>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Upload a image</label>

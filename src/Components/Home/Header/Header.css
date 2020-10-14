@@ -4,8 +4,6 @@
     height: 205vh;
     background-size: cover;
     background-position: center; */
-    height:650px;
-    position:relative;
     background-color: #FBD062;
-    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 0% 100%);
 }

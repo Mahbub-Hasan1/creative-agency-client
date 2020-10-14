@@ -31,26 +31,11 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/patient">
-                        {/* <FontAwesomeIcon icon={faUsers} />*/} <span>Patients</span>
+                    <Link to="/serviceList">
+                        {/* <FontAwesomeIcon icon={faCalendar} />*/} <span>Service List</span>
                     </Link>
                 </li>
-                <li>
-                    <Link to="/prescriptions">
-                        {/* <FontAwesomeIcon icon={faFileAlt} />*/} <span>Prescriptions</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/addDoctor">
-                        {/* <FontAwesomeIcon icon={faUserPlus} />*/} <span>Add Doctor</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/doctor/setting">
-                        {/* <FontAwesomeIcon icon={faCog} />*/} <span>Settings</span>
-                    </Link>
-                </li>
-
+                
             </ul>
             <div>
                 <Link to="/">{/*<FontAwesomeIcon icon={faSignOutAlt} />*/} <span>Logout</span></Link>
