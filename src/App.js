@@ -1,6 +1,5 @@
 import React, { createContext, useState } from 'react';
 import './App.css';
-// import Login from './Components/Login/Login'
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +7,13 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home/Home/Home';
 import NoMatch from './Components/NoMatch/NoMatch';
+import Login from './Components/Login/Login';
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import Review from './Components/Dashboard/Review/Review';
+import AddService from './Components/Dashboard/AddService/AddService';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import AddOrder from './Components/Dashboard/AddOrder/AddOrder';
+import MyOrderList from './Components/Dashboard/MyOrderList/MyOrderList';
 
 export const UserContext = createContext();
 
@@ -20,9 +26,27 @@ function App() {
           <Route path="/Home">
             <Home />
           </Route>
-          {/* <Route path="/login">
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/addservice">
+            <AddService />
+          </PrivateRoute>
+          <Route path="/login">
             <Login />
-          </Route> */}
+          </Route>
+          <PrivateRoute path="/myOrderList">
+            <MyOrderList />
+          </PrivateRoute>
+          <PrivateRoute path="/service/item/:_id">
+            <AddOrder />
+          </PrivateRoute>
+          <PrivateRoute path="/review">
+            <Review />
+          </PrivateRoute>
+          <PrivateRoute path="/order">
+            <AddOrder />
+          </PrivateRoute>
           <Route exact path="/">
             <Home />
           </Route>

@@ -1,4 +1,9 @@
 .header-container {
+    /* background-image:linear-gradient(-5deg, transparent 55%, #FBD062  45%);
+    width: 100%;
+    height: 205vh;
+    background-size: cover;
+    background-position: center; */
     height:650px;
     position:relative;
     background-color: #FBD062;
