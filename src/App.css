@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+body{
+  font-family: 'Roboto', sans-serif;
+}
 input{
   border: 1px solid #EEF0F2;
   width:80%;
   padding: 15px;
   margin: 7px;
   margin-left: 15px;
+}
+textarea{
+  margin-left: 15px;
+  margin-right: 15px;
 }
 .hap{
   width:40%;

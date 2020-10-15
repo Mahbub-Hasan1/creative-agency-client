@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from '../../Shared/Navbar/Navbar';
 import Sidebar from '../Sidebar/Sidebar';
+import loding from '../../images/Loding.gif'
+import DashNav from '../DashNav/DashNav';
 
 const ServiceList = () => {
 
@@ -15,17 +15,17 @@ const ServiceList = () => {
     return (
         <div>
             <div>
-                <Navbar/>
+                <DashNav />
             </div>
             <div className="d-flex">
-                <div style={{width:"22%"}}>
+                <div style={{ width: "22%" }}>
                     <Sidebar></Sidebar>
                 </div>
-                <div style={{backgroundColor: '#A2C9FD'}}>
-                    <div style={{margin: '30px', borderRadius: '20px',backgroundColor: '#FFFFFF', fontWeight: 'bold'}}>
-                        <table className="table" style={{marginTop: '20px'}}>
-                            <thead style={{backgroundColor: '#4D9FF2', borderRadius: '20px'}}>
-                                <tr style={{margin:'20px'}}>
+                <div style={{ backgroundColor: '#A2C9FD' }}>
+                    <div style={{ margin: '30px', borderRadius: '20px', backgroundColor: '#FFFFFF', fontWeight: 'bold' }}>
+                        <table className="table" style={{ marginTop: '20px' }}>
+                            <thead style={{ backgroundColor: '#4D9FF2', borderRadius: '20px' }}>
+                                <tr style={{ margin: '20px' }}>
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Email ID</th>
@@ -34,9 +34,13 @@ const ServiceList = () => {
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+
+                            {orders.length === 0 ?<img src={loding} alt=""/>
+                                : 
+
+                                <tbody>
                                 {orders.map(Lists =>
-                                
+
                                     <tr key={Lists._id}>
                                         <th scope="row">{Lists.itemId}</th>
                                         <td>{Lists.name}</td>
@@ -44,11 +48,19 @@ const ServiceList = () => {
                                         <td>{Lists.serviceName}</td>
                                         <td>{Lists.VolunteerName}</td>
                                         <td><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></td>
-                                        {/* <tb><img onClick={() => deleteActivities(Lists._id)} style={{width:'60%', backgroundColor:'red', borderRadius: '10px', marginTop: '5px', cursor:'pointer'}} src={trashImg} alt=""/></tb> */}
+                                        <td>
+                                            <select>
+                                                <option> pending</option>
+                                                <option className="text-color" > Done</option>
+                                                <option> Ongoing</option>
+                                            </select>
+                                        </td>
                                     </tr>
                                 )}
 
                             </tbody>
+                            }
+                            
                         </table>
                     </div>
                 </div>

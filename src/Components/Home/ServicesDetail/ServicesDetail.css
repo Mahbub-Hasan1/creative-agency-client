@@ -5,4 +5,5 @@
 .service:hover{
     transform: scale(1.1);
     box-shadow: 10px 10px 40px #9D9D9D;
+    text-decoration: none;
 }

@@ -1,18 +1,30 @@
 import React from 'react';
 
-const OrderList = ({Order}) => {
+const OrderList = ({ Order }) => {
     return (
-        <div className="col-md-4 col-sm-6 text-center">
-        {
-            Order.image ? <img style={{height: '200px'}} src={`data:image/png;base64,${Order.image.img}`}/>
-            :
-            <img style={{height: '200px'}} className="img-fluid mb-3" src={`http://localhost:5000/${Order.img}`} alt=""/>
-        }
-            <p>{Order.name}</p>
-            <p>{Order.email}</p>
+        <>
 
-            
-        </div>
+            <div style={{ marginBottom: '15px' }} className="col-md-4" >
+
+                <div className="card shadow-sm">
+                    <div className="card-header d-flex  align-items-center">
+                        {
+                            Order.image ? <img style={{ borderRadius: '50px' }} width="60" src={`data:image/png;base64,${Order.image.img}`} />
+                                :
+                                <img style={{ borderRadius: '50px' }} width="60" className="img-fluid mb-3" src={`http://localhost:5000/${Order.img}`} alt="" />
+                        }
+                        <div>
+                            <h6 className="text-primary">{Order.name} </h6>
+                        </div>
+                    </div>
+                    <div className="card-body">
+                        <h6 className="text-primary">{Order.serviceName} </h6>
+                        <p className="card-text text-secondary mt-4">{Order.description}</p>
+                    </div>
+
+                </div>
+            </div>
+        </>
     );
 };
 

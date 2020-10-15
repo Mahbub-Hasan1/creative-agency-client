@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DashNav from '../DashNav/DashNav';
 import Sidebar from '../Sidebar/Sidebar';
 
 const AddService = () => {
@@ -37,6 +38,7 @@ const AddService = () => {
     }
     return (
         <section>
+            <DashNav></DashNav>
             <div className="row">
                 <div className="col-md-2 col-sm-6 col-12">
                     <Sidebar></Sidebar>

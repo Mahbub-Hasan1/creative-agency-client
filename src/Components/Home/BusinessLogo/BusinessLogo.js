@@ -7,26 +7,24 @@ import airbnb from '../../images/logos/airbnb.png'
 
 const BusinessLogo = () => {
     return (
-        <section className="d-flex justify-content-center">
+        <section style={{ marginBottom: '10%' }} className="d-flex justify-content-center">
             {/* <img src={google} className="img-fluid" style={{ width: '50%' }} alt="" />
             <img src={uber} className="img-fluid" style={{ width: '50%' }} alt="" />
             <img src={netflix} className="img-fluid" style={{ width: '50%' }} alt="" />
             <img src={airbnb} className="img-fluid" style={{ width: '50%' }} alt="" /> */}
-            <div className="w-75 row">
-                <div className="col-md-4 d-flex justify-content-center">
-                    <img src={slack} className="card-img" style={{ width: '50%',height:'50%' }} alt="" />
-                </div>
-                <div className="col-md-4 d-flex justify-content-center">
-                    <img src={google} className="img-fluid" style={{ width: '50%',height:'50%' }} alt="" />
-                </div>
-                <div className="col-md-4 d-flex justify-content-center">
-                    <img src={uber} className="img-fluid" style={{ width: '50%',height:'50%' }} alt="" />
-                </div>
-                <div className="col-md-4 d-flex justify-content-center">
-                    <img src={netflix} className="img-fluid" style={{ width: '50%',height:'50%' }} alt="" />
-                </div>
-                <div className="col-md-4 d-flex justify-content-center">
-                    <img src={airbnb} className="img-fluid" style={{ width: '50%',height:'50%' }} alt="" />
+            <div className="w-75 row d-flex">
+
+                <div style={{ height: '50px' }}>
+                    <img src={slack} className="card-img col md-4" style={{ width: '20%', marginRight: '20px' }} alt="" />
+
+
+                    <img src={google} className="img-fluid md-4" style={{ width: '18%', marginRight: '20px' }} alt="" />
+
+                    <img src={uber} className="img-fluid md-4" style={{ width: '17%', marginRight: '20px' }} alt="" />
+
+                    <img src={netflix} className="img-fluid md-4" style={{ width: '17%', marginRight: '20px' }} alt="" />
+                    <img src={airbnb} className="img-fluid md-4" style={{ width: '18%', marginRight: '20px' }} alt="" />
+
                 </div>
             </div>
         </section>

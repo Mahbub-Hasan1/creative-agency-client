@@ -15,6 +15,7 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import AddOrder from './Components/Dashboard/AddOrder/AddOrder';
 import MyOrderList from './Components/Dashboard/MyOrderList/MyOrderList';
 import ServiceList from './Components/Dashboard/ServiceList/ServiceList';
+import Addmin from './Components/Dashboard/Addmin/Addmin';
 
 export const UserContext = createContext();
 
@@ -50,6 +51,9 @@ function App() {
           </PrivateRoute>
           <PrivateRoute path="/serviceList">
             <ServiceList />
+          </PrivateRoute>
+          <PrivateRoute path="/addNewAdmin">
+            <Addmin />
           </PrivateRoute>
           <Route exact path="/">
             <Home />

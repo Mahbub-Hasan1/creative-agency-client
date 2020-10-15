@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../images/logos/logo.png'
+import googleIcon from '../images/google.png'
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -39,15 +40,42 @@ const Login = () => {
       });
   }
 
+
+  const mainDivStyle = {
+    textAlign: 'center',
+    height: '620px',
+    paddingTop: '3%',
+}
+const loginStyle = {
+    width: '40%',
+    height: '350px',
+    backgroundColor: '#fff',
+    margin: '0 auto',
+    marginTop: '5%',
+    paddingTop: '100px',
+    border: '3px solid #DDD2D2'
+}
+const LoginBtnStyle = {
+    width: '60%',
+    borderRadius: '20px',
+    fontWeight: 'bold',
+    border: '2px solid #67A7FD',
+    marginTop: '10px',
+    marginBottom: '10px',
+    paddingRight: '45px'
+
+}
   return (
-    <div style={{ height: '520px', marginTop: '5%', border: 'none' }} className="card text-center d-flex justify-content-center align-items-center">
-        <div className="col-md-4 text-center">
-          <img style={{ height: '70px' }} src={logo} alt="" />
+    <div style={mainDivStyle}>
+            <div>
+            <Link to="/Home"><img style={{ width: '20%' }} src={logo} alt="logo" /></Link>
+            </div>
+            <div className="col md-12" style={loginStyle}>
+                <h5>Login With</h5>
+                <button style={LoginBtnStyle} onClick={handleGoogleSignIn}><img style={{ width: '40px', marginRight: '30px' }} src={googleIcon} alt="googleIcon" /> Continue with Google</button>
+                <p>Don't have an account? <span style={{ color: '#67A7FD' }}>Create an account</span></p>
+            </div>
         </div>
-        <div  style={{border:'1px solid black'}} className="col-md-3 card-body">
-          <a href="#" className="btn btn-primary" onClick={handleGoogleSignIn}>Login</a>
-        </div>
-    </div>
   );
 };
 

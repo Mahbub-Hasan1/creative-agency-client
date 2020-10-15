@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
 import OrderList from './OrderList';
+import loding from '../../images/Loding.gif';
+import Navbar from '../../Shared/Navbar/Navbar';
+import DashNav from '../DashNav/DashNav';
 
 const MyOrderList = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -15,32 +18,35 @@ const MyOrderList = () => {
     }, [])
     return (
         <section>
+            <DashNav></DashNav>
             <div className="row">
                 <div className="col-md-2 col-sm-6 col-12">
                     <Sidebar></Sidebar>
                 </div>
-                <div className="col-md-5 col-sm-12 col-12 d-flex justify-content-center">
+                <div className="services-container mt-5">
+                    
+                    <div className="d-flex justify-content-center">
+                        {orders.length === 0 ?
+                            <img src={loding} alt="" />
+                            : <div className="row">
+                                {
+                                    orders.map(Order => <OrderList key={Order._id} Order={Order} />)
+                                }
 
-                    <h1>Your Order List || hello {loggedInUser.name}</h1>
+                            </div>
+                        }
 
-                    <section className="doctors">
-                        <div className="container">
-                            <h5 className="text-center  text-primary mb-5">Our Doctors</h5>
-                            {orders.length === 0 ? <h3>Loding.....</h3>
-                                : <div className="row">
-                                    {
-                                        orders.map(Order => <OrderList key={Order._id} Order={Order} />)
-                                    }
-
-                                </div>
-                            }
-                        </div>
-                    </section>
-
-
+                    </div>
                 </div>
             </div>
         </section>
+
+
+
+
+
+
+
 
     );
 };

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
-import Navbar from '../../Shared/Navbar/Navbar';
+import DashNav from '../DashNav/DashNav';
 import Sidebar from '../Sidebar/Sidebar';
 
 
@@ -30,7 +30,7 @@ const Review = () => {
 
     return (
         <section>
-            <Navbar></Navbar>
+            <DashNav></DashNav>
             <div className="row">
                 <div className="col-md-2 col-sm-6 col-12">
                     <Sidebar></Sidebar>
