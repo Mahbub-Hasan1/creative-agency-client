@@ -5,7 +5,7 @@ import loding from '../../images/Loding.gif'
 const Services = () => {
     const [serviceData, setServiceData] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://cryptic-anchorage-76136.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setServiceData(data))
     }, [])

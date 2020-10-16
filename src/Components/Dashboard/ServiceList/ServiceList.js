@@ -2,16 +2,40 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
 import loding from '../../images/Loding.gif'
 import DashNav from '../DashNav/DashNav';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+const options = [
+    { value: 'Pending', label: 'Pending' },
+    { value: 'On Going', label: 'On Going' },
+    { value: 'Done', label: 'Done' }
+]
 
 const ServiceList = () => {
-
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/allServiceList')
+        fetch('https://cryptic-anchorage-76136.herokuapp.com/allServiceList')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
+
+
+    const change = (e, id) => {
+        fetch(`https://cryptic-anchorage-76136.herokuapp.com/update/${id}`, {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({status: e.value})
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                alert('Status updated successfully')
+            }
+        })
+    }
+    const defaultOption = options[0];
+
     return (
         <div>
             <div>
@@ -46,14 +70,9 @@ const ServiceList = () => {
                                         <td>{Lists.name}</td>
                                         <td>{Lists.email}</td>
                                         <td>{Lists.serviceName}</td>
-                                        <td>{Lists.VolunteerName}</td>
-                                        <td><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p></td>
+                                        <td>{Lists.description}</td>
                                         <td>
-                                            <select>
-                                                <option> pending</option>
-                                                <option className="text-color" > Done</option>
-                                                <option> Ongoing</option>
-                                            </select>
+                                            <Dropdown options={options} onChange={(e) => {change(e, `${Lists._id}`)}} value={defaultOption} placeholder="Select an option" />
                                         </td>
                                     </tr>
                                 )}

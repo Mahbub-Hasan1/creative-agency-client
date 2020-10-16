@@ -12,7 +12,7 @@ const MyOrderList = () => {
 
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/orders?email=' + loggedInUser.email)
+        fetch('https://cryptic-anchorage-76136.herokuapp.com/orders?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -28,7 +28,7 @@ const MyOrderList = () => {
                     <div className="d-flex justify-content-center">
                         {orders.length === 0 ?
                             <img src={loding} alt="" />
-                            : <div className="row">
+                            : <div>
                                 {
                                     orders.map(Order => <OrderList key={Order._id} Order={Order} />)
                                 }

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DashNav from '../DashNav/DashNav';
 import Sidebar from '../Sidebar/Sidebar';
 
+
 const AddOrder = () => {
 
     const [info, setInfo] = useState({});
@@ -26,7 +27,7 @@ const AddOrder = () => {
         formData.append('email', info.email);
         formData.append('description', info.description);
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://cryptic-anchorage-76136.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })
@@ -74,6 +75,7 @@ const AddOrder = () => {
                                 <textarea onBlur={handleBlur} name="description" className="form-control" cols="20" rows="10" required placeholder="Message *"></textarea><br />
 
                             </div>
+                            
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Upload a image</label>
                                 <input onChange={handleFileChange} type="file" className="form-control" id="exampleInputPassword1" placeholder="Picture" />

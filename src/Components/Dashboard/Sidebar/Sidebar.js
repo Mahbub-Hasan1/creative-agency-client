@@ -8,7 +8,7 @@ const Sidebar = () => {
     const [admin, setAdmin] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/admin?email='+loggedInUser.email)
+        fetch('https://cryptic-anchorage-76136.herokuapp.com/admin?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setAdmin(data))
     }, [])
@@ -24,17 +24,17 @@ const Sidebar = () => {
                         <>
                             <li>
                                 <Link to="/addService">
-                                    {/* <FontAwesomeIcon icon={faCalendar} />*/} <span>Add Service</span>
+                                    <span>Add Service</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/serviceList">
-                                    {/* <FontAwesomeIcon icon={faCalendar} />*/} <span>Service List</span>
+                                    <span>Service List</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/addNewAdmin">
-                                    {/* <FontAwesomeIcon icon={faCalendar} />*/} <span>Add Admin</span>
+                                    <span>Add Admin</span>
                                 </Link>
                             </li>
 
@@ -43,17 +43,17 @@ const Sidebar = () => {
                         : <>
                             <li>
                                 <Link to="/order">
-                                    {/*<FontAwesomeIcon icon={faHome} />*/} <span>Add Order</span>
+                                    <span>Add Order</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/myOrderList">
-                                    {/* <FontAwesomeIcon icon={faGripHorizontal} />*/} <span>Your Order List</span>
+                                    <span>Your Order List</span>
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/review">
-                                    {/*<FontAwesomeIcon icon={faHome} />*/} <span>Review</span>
+                                    <span>Review</span>
                                 </Link>
                             </li>
 
